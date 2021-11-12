@@ -23,6 +23,7 @@ private:
     Position pos;
     void nextDirection(Move& m);
     void calcOffset(Move& m);
+    void generatePath(Move& m);
     std::map<std::pair<int, int>, bool> visited;
 
 public:

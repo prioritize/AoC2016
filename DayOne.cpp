@@ -95,3 +95,29 @@ void DayOne::calcOffset(Move& m) {
             break;
     }
 }
+void DayOne::generatePath(Move &m) {
+    // I'm going to purposefully choose to ignore the direction and assume that it's been handled for me
+    vector<std::pair<int, int>> steps;
+    switch (current) {
+        case 'N':
+            for (int i = 1; i <= m.offset; ++i) {
+                steps.push_back({pos.x, pos.y + i});
+            }
+            break;
+        case 'S':
+            for (int i = 1; i <= m.offset; ++i) {
+                steps.push_back({pos.x, pos.y - i});
+            }
+            break;
+        case 'E':
+            for (int i = 1; i <= m.offset; ++i) {
+                steps.push_back({pos.x + i, pos.y});
+            }
+            break;
+        case 'W':
+            for (int i = 1; i <= m.offset; ++i) {
+                steps.push_back({pos.x - i, pos.y + i});
+            }
+            break;
+    }
+}
