@@ -1,0 +1,6 @@
+[submodule "GoogleTests/include/googletest"]
+	path = GoogleTests/include/googletest
+	url = https://github.com/google/googletest
+[submodule "fmt"]
+	path = fmt
+	url = https://github.com/fmtlib/fmt
