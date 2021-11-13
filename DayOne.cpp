@@ -1,7 +1,3 @@
-//
-// Created by leach on 11/10/2021.
-//
-
 #include "DayOne.h"
 #include <regex>
 #include <iostream>
@@ -12,14 +8,15 @@ int DayOne::endingDistance() {
     auto moves = parseInput();
     for (auto& m : moves) {
         nextDirection(m);
+        generatePath(m);
         calcOffset(m);
-        std::pair<int, int> loc(pos.x, pos.y);
-        if (visited.contains(loc)) {
-            fmt::print("{}, {} is the first location we visit twice. It is {} blocks away", pos.x, pos.y, abs(pos.x) + abs(pos.y));
-            return abs(pos.x) + abs(pos.y);
-        } else {
-            visited.insert({loc, true});
-        }
+//        std::pair<int, int> loc(pos.x, pos.y);
+//        if (visited.contains(loc)) {
+//            fmt::print("{}, {} is the first location we visit twice. It is {} blocks away", pos.x, pos.y, abs(pos.x) + abs(pos.y));
+//            return abs(pos.x) + abs(pos.y);
+//        } else {
+//            visited.insert({loc, true});
+//        }
     }
     return abs(pos.x) + abs(pos.y);
 }
@@ -116,8 +113,18 @@ void DayOne::generatePath(Move &m) {
             break;
         case 'W':
             for (int i = 1; i <= m.offset; ++i) {
-                steps.push_back({pos.x - i, pos.y + i});
+                steps.push_back({pos.x - i, pos.y});
             }
             break;
+    }
+    for (auto& s : steps) {
+        if (!visited.contains(s)) {
+            visited.insert({s, true});
+            fmt::print("inserting {}, {} into the visited map\n", s.first, s.second);
+        }
+        else {
+            fmt::print("{}, {} is the first location we visit twice. It is {} blocks away", s.first, s.second, abs(s.first) + abs(s.second));
+            return;
+        }
     }
 }
