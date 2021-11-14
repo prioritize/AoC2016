@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 #include "../OpenFile.h"
 #include "../DayOne.h"
+#include "../DayTwo.h"
 #include <fmt/core.h>
 
 TEST(Test_of_GTest, FirstTest) {
@@ -27,4 +28,9 @@ TEST(Overall, EvaluateInput) {
     OpenFile f("input.txt");
     DayOne dayOne(f.input());
     fmt::print("The ending distance for this input is {}\n", dayOne.endingDistance());
+}
+
+TEST(Day2, TestConstructor) {
+    DayTwo dayTwo("input2.txt");
+    dayTwo.printKeypad();
 }
