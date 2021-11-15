@@ -34,3 +34,14 @@ TEST(Day2, TestConstructor) {
     DayTwo dayTwo("input2.txt");
     dayTwo.printKeypad();
 }
+
+TEST(Day2, TestInput) {
+    DayTwo dayTwo("input2.txt");
+    dayTwo.parseInput();
+    dayTwo.printInput();
+}
+TEST(Day2, TestPart1) {
+    DayTwo dayTwo("input2.txt");
+    dayTwo.parseInput();
+    dayTwo.parsePuzzle();
+}
