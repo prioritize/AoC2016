@@ -25,37 +25,37 @@ void DayTwo::printInput() {
     }
 }
 void DayTwo::parsePuzzle() {
-    fmt::print("The size of keypad is ({}, {})\n", keypad.size(), keypad[0].size());
     for (auto& l : input) {
-        for (auto &c: l) {
+        for (auto& c : l) {
             if (c == 'D') {
-                fmt::print("found a D\n");
-                if (position.second < keypad.size()) {
+                if (position.first < keypad.size()-1) {
+                    position.first++;
+                }
+            } else if (c == 'R') {
+                if (position.second < keypad[0].size()-1) {
                     position.second++;
                 }
-            } else if (c == 'U') {
-                fmt::print("found a U\n");
+            } else if (c == 'L') {
                 if (position.second > 0) {
                     position.second--;
                 }
-            } else if (c == 'R') {
-                fmt::print("found a R\n");
-                if (position.first < keypad[0].size()) {
-                    position.first++;
-                }
-            } else if (c == 'L') {
-                fmt::print("found a L\n");
+            } else if (c == 'U') {
                 if (position.first > 0) {
                     position.first--;
                 }
-            } else {
-                fmt::print("Caught something else\n");
             }
         }
-        fmt::print("{}, {}", position.first, position.second);
         output.push_back(keypad[position.first][position.second]);
     }
     for (auto& c : output)  {
         fmt::print("{}", c);
     }
 }
+//explicit DayTwo(std::string fname) :
+//fname(std::move(fname)), keypad({
+//                                        {'X', 'X', '1', 'X', 'X'},
+//                                        {'X', '2', '3', '4', 'X'},
+//                                        {'5', '6', '7', '8', '9'},
+//                                        {'X', 'A', 'B', 'C', 'X'},
+//                                        {'X', 'X', 'D', 'X', 'X'}}),
+//position({1, 1}) {}
