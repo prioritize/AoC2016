@@ -51,11 +51,8 @@ void DayTwo::parsePuzzle() {
         fmt::print("{}", c);
     }
 }
-//explicit DayTwo(std::string fname) :
-//fname(std::move(fname)), keypad({
-//                                        {'X', 'X', '1', 'X', 'X'},
-//                                        {'X', '2', '3', '4', 'X'},
-//                                        {'5', '6', '7', '8', '9'},
-//                                        {'X', 'A', 'B', 'C', 'X'},
-//                                        {'X', 'X', 'D', 'X', 'X'}}),
-//position({1, 1}) {}
+void DayTwo::setKeypad(vector<vector<char>> kPad) {
+    keypad = kPad;
+}
+
+

@@ -14,6 +14,11 @@ using std::vector;
 
 class DayTwo {
 public:
+    vector<vector<char>> keypad;
+    std::pair<int, int> position;
+    std::string fname;
+    vector<std::string> input;
+    vector<char> output;
     explicit DayTwo(std::string fname) :
         fname(std::move(fname)), keypad({{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}}),
         position({1, 1}) {
@@ -23,12 +28,7 @@ public:
     void parseInput();
     void printInput();
     void parsePuzzle();
-private:
-    vector<vector<char>> keypad;
-    vector<std::string> input;
-    std::string fname;
-    std::pair<int, int> position;
-    vector<char> output;
+    void setKeypad(std::vector<std::vector<char>> kPad);
 };
 
 
